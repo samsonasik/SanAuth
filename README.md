@@ -1,5 +1,6 @@
 ZF2 sample auth login with rememberMe.
 
-With users.sql example :
-    user_name : samsonasik
-    password : 123456
+With users.postgresql.sql or users.mysql.sql example :
+
+* user_name : samsonasik 
+* password  : 123456      
