@@ -1,5 +1,6 @@
 <?php
 
+//module/SanAuth/src/SanAuth/Model/MyAuthStorage.php
 namespace SanAuth\Model;
 
 use Zend\Authentication\Storage;

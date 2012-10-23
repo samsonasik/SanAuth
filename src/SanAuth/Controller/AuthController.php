@@ -1,4 +1,5 @@
 <?php
+//module/SanAuth/src/SanAuth/Controller/AuthController.php
 
 namespace SanAuth\Controller;
 
@@ -74,7 +75,7 @@ class AuthController extends AbstractActionController
                                        ->setIdentity($request->getPost('username'))
                                        ->setCredential($request->getPost('password'));
                                        
-                $result = $this->authservice->authenticate();
+                $result = $this->getAuthService()->authenticate();
                 foreach($result->getMessages() as $message)
                 {
                     //save message temporary into flashmessenger
