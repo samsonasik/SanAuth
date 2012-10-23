@@ -1,4 +1,5 @@
 <?php
+//module/SanAuth/Module.php
 
 namespace SanAuth;
 
@@ -33,7 +34,22 @@ class Module implements AutoloaderProviderInterface
     public function getServiceConfig()
     {
         return array(
+	
+	// setting db config immediately if necessary, ignore if already defined in global.php    
+	//   'db' => array(
+	//	'username' => 'YOUR USERNAME HERE',
+	//	'password' => 'YOUR PASSWORD HERE',
+	//	'driver'         => 'Pdo',
+	//	'dsn'            => 'mysql:dbname=zf2tutorial;host=localhost',
+	//	'driver_options' => array(
+	//	    PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
+	//	),
+	//    ),
+	    
             'factories'=>array(
+//		 'Zend\Db\Adapter\Adapter'
+  //                  => 'Zend\Db\Adapter\AdapterServiceFactory',
+		
 		'SanAuth\Model\MyAuthStorage' => function($sm){
 		    return new \SanAuth\Model\MyAuthStorage('zf_tutorial');  
 		},
