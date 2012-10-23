@@ -1,4 +1,1 @@
-SanAuth
-=======
-
-ZF2 Simple Auth
+Sample, skeleton module for use with the ZF2 MVC layer.
