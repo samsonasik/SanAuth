@@ -6,7 +6,7 @@ use Zend\Form\Annotation;
 
 /**
  * @Annotation\Hydrator("Zend\Stdlib\Hydrator\ObjectProperty")
- * @Annotation\Name("Student")
+ * @Annotation\Name("User")
  */
 class User
 {
