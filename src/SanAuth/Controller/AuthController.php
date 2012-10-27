@@ -102,7 +102,8 @@ class AuthController extends AbstractActionController
     
     public function logoutAction()
     {
-        if ($this->getAuthService()->hasIdentity()) {       
+        if ($this->getAuthService()->hasIdentity()) {
+            $this->getSessionStorage()->forgetMe();
             $this->getAuthService()->clearIdentity();
             $this->flashmessenger()->addMessage("You've been logout");
         }
