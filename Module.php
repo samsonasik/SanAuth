@@ -60,6 +60,7 @@ class Module implements AutoloaderProviderInterface
 		    
 		    $authService = new AuthenticationService();
 		    $authService->setAdapter($dbTableAuthAdapter);
+		    $authService->setStorage($sm->get('SanAuth\Model\MyAuthStorage'));
 		     
 		    return $authService;
 		},
