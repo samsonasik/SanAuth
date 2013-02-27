@@ -1,5 +1,4 @@
 <?php
-//module/SanAuth/src/SanAuth/Controller/AuthController.php
 
 namespace SanAuth\Controller;
 
@@ -105,7 +104,7 @@ class AuthController extends AbstractActionController
         if ($this->getAuthService()->hasIdentity()) {
             $this->getSessionStorage()->forgetMe();
             $this->getAuthService()->clearIdentity();
-            $this->flashmessenger()->addMessage("You've been logout");
+            $this->flashmessenger()->addMessage("You've been logged out");
         }
         
         return $this->redirect()->toRoute('login');

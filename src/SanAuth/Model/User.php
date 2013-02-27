@@ -1,5 +1,5 @@
 <?php
-//module/SanAuth/src/SanAuth/Model/User.php
+
 namespace SanAuth\Model;
 
 use Zend\Form\Annotation;

@@ -1,5 +1,4 @@
 <?php
-//module/SanAuth/Module.php
 
 namespace SanAuth;
 
