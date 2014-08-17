@@ -9,7 +9,7 @@ return array(
     ),
     'router' => array(
         'routes' => array(
-            
+
             'login' => array(
                 'type'    => 'Literal',
                 'options' => array(
@@ -36,7 +36,7 @@ return array(
                     ),
                 ),
             ),
-            
+
             'success' => array(
                 'type'    => 'Literal',
                 'options' => array(
@@ -63,7 +63,7 @@ return array(
                     ),
                 ),
             ),
-            
+
         ),
     ),
     'view_manager' => array(

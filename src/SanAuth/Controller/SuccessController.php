@@ -13,7 +13,7 @@ class SuccessController extends AbstractActionController
                  ->get('AuthService')->hasIdentity()){
             return $this->redirect()->toRoute('login');
         }
-        
+
         return new ViewModel();
     }
 }
