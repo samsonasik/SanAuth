@@ -5,7 +5,7 @@ namespace SanAuth\Model;
 use Zend\Form\Annotation;
 
 /**
- * @Annotation\Hydrator("Zend\Stdlib\Hydrator\ObjectProperty")
+ * @Annotation\Hydrator("Zend\Hydrator\ObjectProperty")
  * @Annotation\Name("User")
  */
 class User

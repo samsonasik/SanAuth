@@ -3,6 +3,7 @@
 return array(
     'controllers' => array(
         'factories' => array(
+            
             'SanAuth\Controller\Auth' => function($service) {
                 if ($service instanceof \Zend\ServiceManager\ServiceLocatorAwareInterface) {
                     $service = $service->getServiceLocator();
@@ -10,16 +11,22 @@ return array(
                 $controller = new \SanAuth\Controller\AuthController(
                     $service->get('AuthService'),
                     $service->get('SanAuth\Model\MyAuthStorage')
-                ),
+                );
+                
+                return $controller;
             },
+            
             'SanAuth\Controller\Success' => function($service) {
                 if ($service instanceof \Zend\ServiceManager\ServiceLocatorAwareInterface) {
                     $service = $service->getServiceLocator();
                 }
                 $controller = new \SanAuth\Controller\SuccessController(
                     $service->get('AuthService')
-                ),
+                );
+                
+                return $controller;
             }
+            
         ),
     ),
     'router' => array(
@@ -30,8 +37,7 @@ return array(
                 'options' => array(
                     'route'    => '/auth',
                     'defaults' => array(
-                        '__NAMESPACE__' => 'SanAuth\Controller',
-                        'controller'    => 'Auth',
+                        'controller'    => 'SanAuth\Controller\Auth',
                         'action'        => 'login',
                     ),
                 ),
@@ -57,8 +63,7 @@ return array(
                 'options' => array(
                     'route'    => '/success',
                     'defaults' => array(
-                        '__NAMESPACE__' => 'SanAuth\Controller',
-                        'controller'    => 'Success',
+                        'controller'    => 'SanAuth\Controller\Success',
                         'action'        => 'index',
                     ),
                 ),

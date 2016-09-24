@@ -23,7 +23,8 @@ class AuthController extends AbstractActionController
 
     public function getAuthService()
     {
-        return $this->authservice;
+        //echo get_class($this->authService);die;
+        return $this->authService;
     }
 
     public function getSessionStorage()
