@@ -12,24 +12,22 @@ class AuthController extends AbstractActionController
     protected $form;
     protected $storage;
     protected $authservice;
+    
+    public function __construct(
+        \Zend\Authentication\AuthenticationService $authService,
+        \SanAuth\Model\MyAuthStorage $storage
+    ) {
+        $this->authService = $authService;
+        $this->storage     = $storage;
+    }
 
     public function getAuthService()
     {
-        if (! $this->authservice) {
-            $this->authservice = $this->getServiceLocator()
-                                      ->get('AuthService');
-        }
-
         return $this->authservice;
     }
 
     public function getSessionStorage()
     {
-        if (! $this->storage) {
-            $this->storage = $this->getServiceLocator()
-                                  ->get('SanAuth\Model\MyAuthStorage');
-        }
-
         return $this->storage;
     }
 

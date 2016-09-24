@@ -2,9 +2,24 @@
 
 return array(
     'controllers' => array(
-        'invokables' => array(
-            'SanAuth\Controller\Auth' => 'SanAuth\Controller\AuthController',
-            'SanAuth\Controller\Success' => 'SanAuth\Controller\SuccessController'
+        'factories' => array(
+            'SanAuth\Controller\Auth' => function($service) {
+                if ($service instanceof \Zend\ServiceManager\ServiceLocatorAwareInterface) {
+                    $service = $service->getServiceLocator();
+                }
+                $controller = new \SanAuth\Controller\AuthController(
+                    $service->get('AuthService'),
+                    $service->get('SanAuth\Model\MyAuthStorage')
+                ),
+            },
+            'SanAuth\Controller\Success' => function($service) {
+                if ($service instanceof \Zend\ServiceManager\ServiceLocatorAwareInterface) {
+                    $service = $service->getServiceLocator();
+                }
+                $controller = new \SanAuth\Controller\SuccessController(
+                    $service->get('AuthService')
+                ),
+            }
         ),
     ),
     'router' => array(
