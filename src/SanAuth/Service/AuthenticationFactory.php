@@ -2,16 +2,15 @@
 
 namespace SanAuth\Service;
 
-use Interop\Container\ContainerInterface;
-use Zend\ServiceManager\Factory\FactoryInterface;
+use SanAuth\Model\MyAuthStorage;
 use Zend\Authentication\AuthenticationService;
 use Zend\Authentication\Adapter\DbTable as DbTableAuthAdapter;
 
-class AuthenticationFactory implements FactoryInterface
+class AuthenticationFactory
 {
-    public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
+    public function __invoke($container)
     {
-        $storage = new \SanAuth\Model\MyAuthStorage();
+        $storage = new MyAuthStorage();
         $dbAdapter = $container->get('Zend\Db\Adapter\Adapter');
         $dbTableAuthAdapter  = new DbTableAuthAdapter($dbAdapter, 'users','user_name','pass_word', 'MD5(?)');
         

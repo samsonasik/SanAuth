@@ -2,14 +2,16 @@
 
 namespace SanAuth\Controller\Factory;
 
-use Interop\Container\ContainerInterface;
-use Zend\ServiceManager\Factory\FactoryInterface;
+use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use SanAuth\Controller\SuccessController;
 
-class SuccessControllerFactory implements FactoryInterface {
-
-    public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
+class SuccessControllerFactory
+{
+    public function __invoke($container)
     {
+        if ($container instanceof ServiceLocatorAwareInterface) {
+            $container = $container->getServiceLocator();
+        }
         $authService = $container->get('AuthService');
 
         return new SuccessController($authService);
